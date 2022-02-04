@@ -1,0 +1,119 @@
+Clase 3 - Cómo organizar las carpetas de tus proyectos.
+La organización de las carpetas debe tener una estructura ordenada algo similar al siguiente ejemplo.
+exploracion_espacial_proyecto
+	|_ README
+	|_ .gitignore
+	|_ venv
+	|_ requirements.txt
+	|_ exploracion_espacial
+		|_ __init__.py
+		|_ nave.py
+		|_ destino.py
+		|_ plataforma.py
+		|_ lanzamiento.py
+		|_ test.py
+		|_ validacion.py
+
+
+Esto va a depeder también el que trabajemos con o sin un Frameworks
+
+clase 4 - ¿Qué son los tipados?
+
+Clasificación de los lenguajes de programación, hay cuatro tipos:
+
+
+
+Clase 5 - Tipado estático en Python
+
+Cuando programamos en Python podemos tener un error de tipado sin darnos cuenta y que este no falle hasta pasado algún tiempo,
+por eso cuando necesitemos tener controlado el tipo de datos que vamos a usar,  podremos usar la siguiente sintaxis:
+
+a: int=5
+b: str='Hola'
+c: bool= True
+
+Asignamos a cada variable a, b y c el tipo de datos que va a contener. Solo está disponible a partir de la versión 3.6 de Python.
+
+¿Cómo hacerlo con funciones?
+
+def suma(a: int, b:int) -> int:
+	return a + b
+print(suma(1,2))
+
+Esta función va a funcionar si meto los datos como enteros, pero ¿que pasa si los meto como string?
+
+print(suma('1', '2')
+
+Me va a devolver 12, esto es porque Python aún está en fase de funcionalidad con tipos estáticos. Como
+de base es de tipo dinámico el lenguaje lo ejecuta sin lanzar ningún error. 
+Hay un módulo en python que si nos ayuda a que el lenguaje se comporte como de tipo estático. 
+
+A partir de la versión 3.9 de Python podemos generar el tipado estático con las palabras clave del tipo correspondiente. 
+Entre la 3.6 y la 3.9 debemos usar el módulo typing. Generalmete nos lo vamos a encontrar de esta manera.
+
+El uso seería como el siguiente ejemplo, creamos una estructura de datos.
+
+from typing import Dict, List
+
+positives: List[int] = [1,2,3,4,5]
+
+users: Dict[str, int] = {
+	'argentina' : 1,
+	'spain' : 34,
+	'mexico' : 45,
+}
+
+countries: List[Dict[str, str]] = [
+	{
+		'name': 'Argentina',
+		'people': '45000',
+	},
+	{
+		'name': 'España',
+		'people': '99999999',
+	},
+	{
+		'name': 'México',
+		'people': '900000',
+	},
+]
+
+Otro ejemplo con Tuplas
+
+from typing import Tuple
+
+numbers: Tuple[int, float, int] = (1, 0.5, 1)
+
+Otro ejemplo aún más complejo, creando nuestro propio tipo de datos para asginar a otra variable.
+
+from typing import Tuple, Dict, List
+
+CoordinatesType = List[Dict[str, Tuple[int, int]]]
+
+coordinates: CoordinatesType = [
+	{
+		'coord1': (1, 2),
+		'coord2': (3, 5),
+	},
+	{
+		'coord1': (0, 1),
+		'coord2': (2, 5),
+	},
+]
+
+Pero vamos a seguir teniendo el problema que Python va a serguir convirtiendo el tipo de datos, si nosotros metemos un string 
+en lugar de un integer, va a funcionar. Para que python tenga en cuenta este tema de los tipos, hay que hacer algo más que la
+sintaxis. Para hacer que Python nos marque como error el usar un tipo de datos diferente al definido, hay que usar el modulo
+mypy, que en conjunto con typing nos dará la potencia de otros lenguajes de tipo estatico mostrandonos errores en consola que
+pueda haber en capas más profundas de nuestro código. 
+
+Clase 6: Practicando el tipado estático.
+
+Ver ejemplo creando el proyecto de los palindromos pero con tipado estático. 
+Archivo palindrome.py
+Dentro del archivo se explica el funcionamiento de mypy el módulo para comprobar el tipado estático. 
+
+Reto: Crear un programa que verifique si un número es primo o no, hay que hacerlo con tipado estático.
+
+Clase 7: Scope: alcance de las variables
+
