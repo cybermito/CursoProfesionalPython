@@ -101,10 +101,10 @@ coordinates: CoordinatesType = [
 	},
 ]
 
-Pero vamos a seguir teniendo el problema que Python va a serguir convirtiendo el tipo de datos, si nosotros metemos un string 
+Pero vamos a seguir teniendo el problema que Python va a seguir convirtiendo el tipo de datos, si nosotros metemos un string 
 en lugar de un integer, va a funcionar. Para que python tenga en cuenta este tema de los tipos, hay que hacer algo más que la
 sintaxis. Para hacer que Python nos marque como error el usar un tipo de datos diferente al definido, hay que usar el modulo
-mypy, que en conjunto con typing nos dará la potencia de otros lenguajes de tipo estatico mostrandonos errores en consola que
+mypy, que en conjunto con typing nos dará la potencia de otros lenguajes de tipo estático mostrándonos errores en consola que
 pueda haber en capas más profundas de nuestro código. 
 
 Clase 6: Practicando el tipado estático.
@@ -117,21 +117,21 @@ Reto: Crear un programa que verifique si un número es primo o no, hay que hacer
 
 Clase 7: Scope: alcance de las variables
 
-Una variable solo puede estár disponible dentro de la región donde fue creada.
+Una variable solo puede estar disponible dentro de la región donde fue creada.
 
 El scope es el alcance que tienen las variables. Depende de donde declares o inicialices una variable para saber si tienes
 acceso. Regla de oro:
 
-    una variable solo esta disponible dentro de la region donde fue creada
+    una variable solo esta disponible dentro de la región donde fue creada
 
 Local Scope
 
 Es la región que corresponde el ámbito de una función, donde podremos tener una o mas variables, las variables van a ser
-accesibles únicamente en esta region y no serán visibles para otras regiones
+accesibles únicamente en esta región y no serán visibles para otras regiones
 
 Global Scope
 
-Al escribir una o mas variables en esta region, estas podrán ser accesibles desde cualquier parte del código.
+Al escribir una o mas variables en esta región, estas podrán ser accesibles desde cualquier parte del código.
 
 Si declaramos una variable con el mismo nombre dentro de una función y fuera de esa función, python considera cada una de ellas como
 variables distintas.
@@ -152,8 +152,7 @@ Esto devolverá 3 y 5.
 Clase 8: Closures
 
 Para entender que es un Closure, primero tenemos que entender y saber que es una Nested Function. 
-Nested Function son funciones anidadas. Dicho de otro modo una función creada dentro de otra función. Podemos hacer return de
-una función creada dentro de otra función y luego guardar esa funciones en variables que podemos utilizar. 
+Nested Function son funciones anidadas. Dicho de otro modo una función creada dentro de otra función. Podemos hacer return de una función creada dentro de otra función y luego guardar esa funciones en variables que podemos utilizar. 
 
 Ejemplo: 
 def main():
@@ -167,8 +166,7 @@ my_func()
 
 Devuelve 1
 
-Eso anterior es un closure 🤯 y es básicamente cuando una variable de un scope superior es recordada por una función de scope 
-inferior (aunque luego se elimine la de scope superior).
+Eso anterior es un closure 🤯 y es básicamente cuando una variable de un scope superior es recordada por una función de scope inferior (aunque luego se elimine la de scope superior).
 
 def main():
 	a = 1
@@ -208,8 +206,12 @@ print(times10(times4(2))) # 80
 Los closure aparecen en dos casos particulares: cuando tenemos una clase corta (con un solo método), los usamos para que sean 
 elegantes. El segundo caso, es cuando usamos decoradores 👀
 
-Para que poder recordar y memorizar esto con facilidad haz una imágen mental de que al retornar una función anidada también 
-se retornan las variables que estaban en su scope superior, no retornamos solo la función, nos traemos toodo lo demás 
+Para que poder recordar y memorizar esto con facilidad haz una imagen mental de que al retornar una función anidada también 
+se retornan las variables que estaban en su scope superior, no retornamos solo la función, nos traemos todo lo demás 
 convivía con esa función, nos traemos el contexto.
 
-Clase 9: Programando Closures. 
+Clase 9: Programando Closures.
+
+Ver ejercicio closure.py que es donde está la práctica.
+
+
